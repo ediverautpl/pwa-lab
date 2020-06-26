@@ -215,71 +215,8 @@ if($cliente->getAccessToken()){
                     </p>
                 </div>
             </a>
-            <!-- REGISTRO DIRECTO -->
-            <form method="post" onsubmit="return registroUsuario()">
-                <hr>
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
-                        <input type="text" class="form-control text-uppercase" id="regUsuario" name="regUsuario"
-                            placeholder="Nombre Completo" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-envelope"></i>
-                        </span>
-                        <input type="email" class="form-control" id="regEmail" name="regEmail"
-                            placeholder="Correo Electrónico" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-lock"></i>
-                        </span>
-                        <input type="password" class="form-control" id="regPassword" name="regPassword"
-                            placeholder="Contraseña" required>
-                    </div>
-                </div>
-                <!-- https://www.iubenda.com/ CONDICIONES DE USO Y POLÍTICAS DE PRIVACIDAD -->
-                <div class="checkBox">
-                    <label>
-                        <input id="regPoliticas" type="checkbox">
-                        <small>
-                            Al registrarse, usted acepta nuestras condiciones de uso y políticas de privacidad
-                            <br>
-                            <a href="//www.iubenda.com/privacy-policy/8146355" class="iubenda-white iubenda-embed"
-                                title="condiciones de uso y políticas de privacidad">Leer más</a>
-                            <script type="text/javascript">
-                            (function(w, d) {
-                                var loader = function() {
-                                    var s = d.createElement("script"),
-                                        tag = d.getElementsByTagName("script")[0];
-                                    s.src = "//cdn.iubenda.com/iubenda.js";
-                                    tag.parentNode.insertBefore(s, tag);
-                                };
-                                if (w.addEventListener) {
-                                    w.addEventListener("load", loader, false);
-                                } else if (w.attachEvent) {
-                                    w.attachEvent("onload", loader);
-                                } else {
-                                    w.onload = loader;
-                                }
-                            })(window, document);
-                            </script>
-                        </small>
-                    </label>
-                </div>
-                <?php
-					$registro = new ControladorUsuarios();
-					$registro -> ctrRegistroUsuario();
-				?>
-                <input type="submit" class="btn btn-default backColor btn-block" value="ENVIAR">
-            </form>
+    
+           
         </div>
         <div class="modal-footer">
             ¿Ya tienes una cuenta registrada? | <strong><a href="#modalIngreso" data-dismiss="modal"
@@ -335,64 +272,7 @@ VENTANA MODAL PARA EL INGRESO
 			INGRESO DIRECTO
 			======================================-->
 
-            <form method="post">
-
-                <hr>
-
-                <div class="form-group">
-
-                    <div class="input-group">
-
-                        <span class="input-group-addon">
-
-                            <i class="glyphicon glyphicon-envelope"></i>
-
-                        </span>
-
-                        <input type="email" class="form-control" id="ingEmail" name="ingEmail"
-                            placeholder="Correo Electrónico" required>
-
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-
-                    <div class="input-group">
-
-                        <span class="input-group-addon">
-
-                            <i class="glyphicon glyphicon-lock"></i>
-
-                        </span>
-
-                        <input type="password" class="form-control" id="ingPassword" name="ingPassword"
-                            placeholder="Contraseña" required>
-
-                    </div>
-
-                </div>
-
-
-
-                <?php
-
-					$ingreso = new ControladorUsuarios();
-					$ingreso -> ctrIngresoUsuario();
-
-				?>
-
-                <input type="submit" class="btn btn-default backColor btn-block btnIngreso" value="ENVIAR">
-
-                <br>
-
-                <center>
-
-                    <a href="#modalPassword" data-dismiss="modal" data-toggle="modal">¿Olvidaste tu contraseña?</a>
-
-                </center>
-
-            </form>
+            
 
         </div>
 

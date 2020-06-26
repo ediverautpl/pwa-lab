@@ -32,7 +32,7 @@ class ControladorUsuarios{
 					VERIFICACIÓN CORREO ELECTRÓNICO
 					=============================================*/
 
-					date_default_timezone_set("America/Bogota");
+					date_default_timezone_set("America/Guayaquil");
 
 					$url = Ruta::ctrRuta();	
 

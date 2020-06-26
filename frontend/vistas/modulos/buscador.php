@@ -68,8 +68,8 @@
 			$ordenar = "id";
 			if(isset($rutas[3])){
 				$busqueda = $rutas[3];
-				$productos = ControladorProductos::ctrBuscarProductos($busqueda, $ordenar, $modo, $base, $tope);
-				$listaProductos = ControladorProductos::ctrListarProductosBusqueda($busqueda);
+				$productos = ControladorLaboratorios::ctrBuscarLaboratorios($busqueda, $ordenar, $modo, $base, $tope);
+				$listaProductos = ControladorLaboratorios::ctrListarLaboratoriosBusqueda($busqueda);
 			}
 			if(!$productos){
 				echo '<div class="col-xs-12 error404 text-center">
@@ -100,11 +100,7 @@
 
 										}
 
-										if($value["oferta"] != 0){
-
-											echo '<span class="label label-warning fontSize">'.$value["descuentoOferta"].'% off</span>';
-
-										}
+										
 
 									echo '</a>	
 
@@ -114,33 +110,7 @@
 
 							<div class="col-xs-6 precio">';
 
-							if($value["precio"] == 0){
-
-								echo '<h2><small>GRATIS</small></h2>';
-
-							}else{
-
-								if($value["oferta"] != 0){
-
-									echo '<h2>
-
-											<small>
 						
-												<strong class="oferta">USD $'.$value["precio"].'</strong>
-
-											</small>
-
-											<small>$'.$value["precioOferta"].'</small>
-										
-										</h2>';
-
-								}else{
-
-									echo '<h2><small>USD $'.$value["precio"].'</small></h2>';
-
-								}
-								
-							}
 											
 							echo '</div>
 

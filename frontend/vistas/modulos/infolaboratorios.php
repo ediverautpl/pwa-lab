@@ -16,6 +16,8 @@ $url = Ruta::ctrRuta();
         </div>
     </div>
 </div>
+
+<!-- INFOLABORATORIOS -->
 <div class="container-fluid infolaboratorio">
     <div class="container">
         <div class="row">
@@ -24,38 +26,25 @@ $url = Ruta::ctrRuta();
 
 				$item =  "ruta";
 				$valor = $rutas[0];
-				$infoproducto = ControladorLaboratorios::ctrMostrarInfoProducto($item, $valor);
+				$infolaboratorio = ControladorLaboratorios::ctrMostrarInfoLaboratorio($item, $valor);
 
-				$multimedia = json_decode($infoproducto["multimedia"],true);
+				$multimedia = json_decode($infolaboratorio["multimedia"],true);
 
-				if($infoproducto["tipo"] == "fisico"){
+				if($infolaboratorio["tipo"] == "virtual"){
 
 					echo '<div class="col-md-5 col-sm-6 col-xs-12 visorImg">
 							<figure class="visor">';
 							if($multimedia != null){
-
 								for($i = 0; $i < count($multimedia); $i ++){
 
 									echo '<img id="lupa'.($i+1).'" class="img-thumbnail" src="'.$servidor.$multimedia[$i]["foto"].'">';
 
-								}								
-
-								echo '</figure>
-								<div class="flexslider">
-								  <ul class="slides">';
-
-								for($i = 0; $i < count($multimedia); $i ++){
-
-									echo '<li>
-								     	<img value="'.($i+1).'" class="img-thumbnail" src="'.$servidor.$multimedia[$i]["foto"].'" alt="'.$infoproducto["titulo"].'">
-								    </li>';
-
-								}
-
+								}	
+											
 							}	
 							    						 
 							  echo '</ul>
-							</div>
+							
 						</div>';			
 				}			
 
@@ -64,7 +53,7 @@ $url = Ruta::ctrRuta();
             <!-- LABORATORIO -->
 
             <?php
-				if($infoproducto["tipo"] == "fisico"){
+				if($infolaboratorio["tipo"] == "virtual"){
 					echo '<div class="col-md-7 col-sm-6 col-xs-12">';
 				}else{
 					echo '<div class="col-sm-6 col-xs-12">';
@@ -106,11 +95,11 @@ $url = Ruta::ctrRuta();
             <?php
 
 					/* TITULO */				
-					if($infoproducto["oferta"] == 0){
-						if($infoproducto["nuevo"] == 0){
-							echo '<h1 class="text-muted text-uppercase">'.$infoproducto["titulo"].'</h1>';
+					
+						if($infolaboratorio["nuevo"] == 0){
+							echo '<h1 class="text-muted text-uppercase">'.$infolaboratorio["titulo"].'</h1>';
 						}else{
-							echo '<h1 class="text-muted text-uppercase">'.$infoproducto["titulo"].'
+							echo '<h1 class="text-muted text-uppercase">'.$infolaboratorio["titulo"].'
 							<br>
 							<small>
 								<span class="label label-warning">Nuevo</span>
@@ -118,26 +107,8 @@ $url = Ruta::ctrRuta();
 							</h1>';
 						}
 
-					}else{
-
-						if($infoproducto["nuevo"] == 0){
-							echo '<h1 class="text-muted text-uppercase">'.$infoproducto["titulo"].'
-							<br>
-							</h1>';
-
-						}else{
-
-							echo '<h1 class="text-muted text-uppercase">'.$infoproducto["titulo"].'
-							<br>
-							<small>
-								<span class="label label-warning">Nuevo</span> 
-							</small>
-							</h1>';
-						}
-					}
-
 					/* DESCRIPCIÓN */		
-					echo '<p>'.$infoproducto["descripcion"].'</p>';
+					echo '<p>'.$infolaboratorio["descripcion"].'</p>';
 
 				?>
 
@@ -145,9 +116,9 @@ $url = Ruta::ctrRuta();
             <hr>
             <div class="form-group row">
                 <?php
-					if($infoproducto["detalles"] != null){
-						$detalles = json_decode($infoproducto["detalles"], true);
-						if($infoproducto["tipo"] == "fisico"){
+					if($infolaboratorio["detalles"] != null){
+						$detalles = json_decode($infolaboratorio["detalles"], true);
+						if($infolaboratorio["tipo"] == "fisico"){
 						}else{
 							echo '<div class="col-xs-12">
 								<li>
@@ -160,149 +131,30 @@ $url = Ruta::ctrRuta();
 						}
 					}
 
-					/*=============================================
-					ENTREGA
-					=============================================*/
+					/* ENTREGA */
+					if($infolaboratorio["entrega"] == 0){
+						echo '<h4 class="col-md-12 col-sm-0 col-xs-0">
 
-					if($infoproducto["entrega"] == 0){
+						<hr>
+						<span class="label label-default" style="font-weight:100">
+							<i class="fa fa-eye" style="margin:0px 5px"></i>
+							Visto por <span class="vistas" tipo="'.$infolaboratorio["precio"].'">'.$infolaboratorio["vistasGratis"].'</span> personas
+						</span>
+					</h4>
 
-						if($infoproducto["precio"] == 0){
-
-							echo '<h4 class="col-md-12 col-sm-0 col-xs-0">
-
-								<hr>
-
-								<span class="label label-default" style="font-weight:100">
-
-									<i class="fa fa-clock-o" style="margin-right:5px"></i>
-									Entrega inmediata | 
-									<i class="fa fa-shopping-cart" style="margin:0px 5px"></i>
-									'.$infoproducto["ventasGratis"].' inscritos |
-									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistasGratis"].'</span> personas
-
-								</span>
-
-							</h4>
-
-							<h4 class="col-lg-0 col-md-0 col-xs-12">
-
-								<hr>
-
-								<small>
-
-									<i class="fa fa-clock-o" style="margin-right:5px"></i>
-									Entrega inmediata <br>
-									<i class="fa fa-shopping-cart" style="margin:0px 5px"></i>
-									'.$infoproducto["ventasGratis"].' inscritos <br>
-									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistasGratis"].'</span> personas
-
-								</small>
-
-							</h4>';
-
-						}else{
-
-							echo '<h4 class="col-md-12 col-sm-0 col-xs-0">
-
-								<hr>
-
-								<span class="label label-default" style="font-weight:100">
-
-									<i class="fa fa-clock-o" style="margin-right:5px"></i>
-									Entrega inmediata |
-									<i class="fa fa-shopping-cart" style="margin:0px 5px"></i>
-									'.$infoproducto["ventas"].' ventas |
-									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistas"].' </span> personas
-
-								</span>
-
-							</h4>
-
-							<h4 class="col-lg-0 col-md-0 col-xs-12">
-
-								<hr>
-
-								<small>
-
-									<i class="fa fa-clock-o" style="margin-right:5px"></i>
-									Entrega inmediata <br> 
-									<i class="fa fa-shopping-cart" style="margin:0px 5px"></i>
-									'.$infoproducto["ventas"].' ventas <br>
-									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistas"].'</span> personas
-
-								</small>
-
-							</h4>';
-
-						}
-
+						';
 					}else{
-
-						if($infoproducto["precio"] == 0){
-
 							echo '<h4 class="col-md-12 col-sm-0 col-xs-0">
 
 								<hr>
-
 								<span class="label label-default" style="font-weight:100">
-								
 									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistasGratis"].'</span> personas  
-
+									Visto por <span class="vistas" tipo="'.$infolaboratorio["precio"].'">'.$infolaboratorio["vistasGratis"].'</span> personas
 								</span>
-
 							</h4>
 
-							<h4 class="col-lg-0 col-md-0 col-xs-12">
-
-								<hr>
-
-								<small>
-									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistasGratis"].' </span> personas 
-
-								</small>
-
-							</h4>';
-
-						}else{
-
-							echo '<h4 class="col-md-12 col-sm-0 col-xs-0">
-
-								<hr>
-
-								<span class="label label-default" style="font-weight:100">
-
-									
-									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistas"].' </span> personas
-
-								</span>
-
-							</h4>
-
-							<h4 class="col-lg-0 col-md-0 col-xs-12">
-
-								<hr>
-
-								<small>
-
-								
-									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistas"].'</span> personas
-
-								</small>
-
-							</h4>';
-
-						}
-
+							';
 					}				
-
 				?>
 
             </div>
@@ -311,20 +163,20 @@ $url = Ruta::ctrRuta();
             <div class="row botonesCompra">
                 <?php
 
-					if($infoproducto["precio"]==0){
+					if($infolaboratorio["precio"]==0){
 						echo '<div class="col-md-6 col-xs-12">';
-							if($infoproducto["tipo"]=="virtual"){
-								echo ' <a href="'.$infoproducto["multimedia"].'" target="_blank">
+							if($infolaboratorio["tipo"]=="virtual"){
+								echo ' <a href="'.$infolaboratorio["multimedia"].'" target="_blank">
 								<button class="btn btn-default btn-block btn-lg backColor">CONTACTAR AHORA</button>';
 							}
 							echo '</div>';
 					}
 				?>
             </div>
-            <!-- ZONA DE LUPA-->
-            <figure class="lupa">
-                <img src="">
-            </figure>
+			<!-- ZONA DE LUPA -->
+			<figure class="lupa">		
+				<img src="">
+			</figure>
         </div>
     </div>
     <br>
@@ -341,7 +193,7 @@ $url = Ruta::ctrRuta();
                 <?php
 
 					$item = "id";
-					$valor = $infoproducto["id_subcategoria"];
+					$valor = $infolaboratorio["id_subcategoria"];
 
 					$rutaArticulosDestacados = ControladorLaboratorios::ctrMostrarSubcategorias($item, $valor);
 
@@ -368,12 +220,12 @@ $url = Ruta::ctrRuta();
 
 			$ordenar = "";
 			$item = "id_subcategoria";
-			$valor = $infoproducto["id_subcategoria"];
+			$valor = $infolaboratorio["id_subcategoria"];
 			$base = 0;
 			$tope = 4;
 			$modo = "Rand()";
 
-			$relacionados = ControladorLaboratorios::ctrMostrarProductos($ordenar, $item, $valor, $base, $tope, $modo);
+			$relacionados = ControladorLaboratorios::ctrMostrarLaboratorios($ordenar, $item, $valor, $base, $tope, $modo);
 
 			if(!$relacionados){
 
@@ -415,34 +267,7 @@ $url = Ruta::ctrRuta();
 
 						<div class="col-xs-6 precio">';
 
-						if($value["precio"] == 0){
-
-							
-
-						}else{
-
-							if($value["oferta"] != 0){
-
-								echo '<h2>
-
-										<small>
-					
-											<strong class="oferta">USD $'.$value["precio"].'</strong>
-
-										</small>
-
-										<small>$'.$value["precioOferta"].'</small>
-									
-									</h2>';
-
-							}else{
-
-								echo '<h2><small>USD $'.$value["precio"].'</small></h2>';
-
-							}
-							
-						}
-										
+						
 						echo '</div>
 
 						<div class="col-xs-6 enlaces">

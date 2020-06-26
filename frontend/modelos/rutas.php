@@ -2,11 +2,11 @@
 
 class Ruta{
 
-	public function ctrRuta(){
-		return "http://192.168.100.42/pwa/frontend/";
+	static public function ctrRuta(){
+		return "http://192.168.100.93/pwa/frontend/";
 	}
 
-	public function ctrRutaServidor(){
-		return "http://192.168.100.42/pwa/backend/";
+	static public function ctrRutaServidor(){
+		return "http://192.168.100.93/pwa/backend/";
 	}
 }

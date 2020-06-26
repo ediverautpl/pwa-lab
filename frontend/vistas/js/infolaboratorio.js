@@ -56,9 +56,8 @@ $(window).on("load", function(){
 	// EVALUAMOS EL PRECIO PARA DEFINIR CAMPO A ACTUALIZAR
 	if(precio == 0){
 		var item = "vistasGratis";
-	}else{
-		var item = "vistas";
 	}
+		
 	// EVALUAMOS LA RUTA PARA DEFINIR EL LABORATORIO A ACTUALIZAR
 	var urlActual = location.pathname;
 	var ruta = urlActual.split("/");

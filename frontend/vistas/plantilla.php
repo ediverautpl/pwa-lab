@@ -71,7 +71,7 @@ if(isset($_GET["ruta"])){
 		}
 	}
 
-	$rutaProductos = ControladorLaboratorios::ctrMostrarInfoProducto($item, $valor);
+	$rutaProductos = ControladorLaboratorios::ctrMostrarInfoLaboratorio($item, $valor);
 	if(is_array($rutaProductos) && $rutas[0] == $rutaProductos["ruta"]){
 		$infoProducto = $rutas[0];
 	}
