@@ -46,12 +46,24 @@
 
 }
 
+.compartirRedes li a{
+	color:white;
+	text-align: center;
+	line-height: 30px;
+	padding:8px;
+	font-size:18px;
+	margin-top:10px;
+	margin-bottom:20px;
+	cursor:pointer;
+
+}
+
 .btnFacebook{
 	background:#46639f;
 }
 
 .btnGoogle{
-	background:#d6513e;
+	background:#25D366;
 }
 
 .alturaComentarios{

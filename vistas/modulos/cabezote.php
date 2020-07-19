@@ -47,7 +47,7 @@ if($cliente->getAccessToken()){
 
 ?>
 
-<div class="container-fluid barraSuperior" id="top">
+<div class="container-fluid barraSuperior Header" id="top">
     <div class="container">
         <div class="row">
             <!-- REDES SOCIALES -->

@@ -34,7 +34,7 @@ if(!isset($_SESSION["validarSesion"])){
 	  		</li>
 	  		<li>				
 	  			<a data-toggle="tab" href="#perfil">
-	  			<i class="fa fa-user"></i> EDITAR PERFIL</a>
+	  			<i class="fa fa-user"></i> PERFIL</a>
 	  		</li>
 		</ul>
 

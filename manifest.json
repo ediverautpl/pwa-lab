@@ -1,0 +1,34 @@
+{
+    "name": "Progressive Web App",
+    "short_name": "PWA - LAB",
+    "description": "Demo de aplicación web progresiva.",
+    "background_color": "#47bac1",
+    "theme_color": "#000",
+    "orientation": "portrait",
+    "display": "standalone",
+    "start_url": "./?utm=homescreen",
+    "scope": "./",
+    "lang": "es-EC",
+    "icons": [
+      {
+        "src": "./vistas/img/apple-touch-icon.png",
+        "sizes": "120x120",
+        "type": "image/png"
+      },
+      {
+        "src": "./vistas/img/android-chrome-96x96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+      {
+        "src": "./vistas/img/favicon-32x32.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      },
+      {
+        "src": "./vistas/img/favicon-16x16.png",
+        "sizes": "16x16",
+        "type": "image/png"
+      }
+    ]
+  }

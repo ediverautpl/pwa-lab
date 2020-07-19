@@ -10,6 +10,16 @@
 
 	<title>PWA - LAB</title>
 
+	<!-- Declaraciópn de manifest -->
+	<link rel="manifest" href="./manifest.json">
+	<meta name="theme-color" content="#47bac1">
+
+	<!-- Detección de Icono de PWA -->
+	<link rel="icon" type="image/png" sizes="16x16" href="./vistas/img/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./vistas/img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./vistas/img/android-chrome-96x96">
+    <link rel="icon" type="image/png" sizes="120x120" href="./vistas/img/apple-touch-icon.png">
+
 	<?php
 
 		session_start();
@@ -111,11 +121,13 @@ if(isset($_GET["ruta"])){
 <script src="<?php echo $url; ?>vistas/js/usuarios.js"></script>
 <script src="<?php echo $url; ?>vistas/js/registroFacebook.js"></script>
 
+<script src="<?php echo $url; ?>vistas/js/script.js"></script>
+
 <!-- https://developers.facebook.com/ -->
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '302834857766034',
+      appId      : '1886940058166316',
       cookie     : true,
       xfbml      : true,
       version    : 'v7.0'

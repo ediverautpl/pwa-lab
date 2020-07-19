@@ -58,6 +58,7 @@ $url = Ruta::ctrRuta();
 					echo '<div class="col-sm-6 col-xs-12">';
 				}
 
+
 			?>
             <!-- REGRESAR INICIO-->
             <div class="col-xs-6">
@@ -76,14 +77,14 @@ $url = Ruta::ctrRuta();
                     <ul class="dropdown-menu pull-right compartirRedes">
                         <li>
                             <p class="btnFacebook">
-                                <i class="fa fa-facebook"></i>
-                                Facebook
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url .$infolaboratorio["titulo"] ?>" target="_blank"><i class="fa fa-facebook"></i>
+                                Facebook</a>
                             </p>
                         </li>
                         <li>
                             <p class="btnGoogle">
-                                <i class="fa fa-google"></i>
-                                Google
+                                <a href="https://api.whatsapp.com/send?text=<?php echo $url .$infolaboratorio["titulo"] ?>" target="_blank"><i class="fa fa-whatsapp"></i>
+                                Whatsapp</a>
                             </p>
                         </li>
                     </ul>

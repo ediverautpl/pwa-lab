@@ -2,8 +2,8 @@
 
 class Ruta{
 
-	public function ctrRuta(){
-		return "https://localhost/pwa/";
+	static public function ctrRuta(){
+		return "http://localhost/pwa/";
 	}
 	
 }

@@ -2,11 +2,11 @@
 
 class ControladorPlantilla{
 
-	public function plantilla(){
+	static public function plantilla(){
 		include "vistas/plantilla.php";
 	}
 
-	public function ctrEstiloPlantilla(){
+	static public function ctrEstiloPlantilla(){
 		
 		$tabla = "plantilla";
 		$respuesta = ModeloPlantilla::mdlEstiloPlantilla($tabla);

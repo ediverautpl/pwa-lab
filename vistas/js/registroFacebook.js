@@ -100,7 +100,7 @@ function testApi(){
 			           		 FB.getLoginStatus(function(response){
 			           		 	 if(response.status === 'connected'){     
 			           		 	 	FB.logout(function(response){
-			           		 	 		delete_Cookie("fblo_302834857766034");
+			           		 	 		delete_Cookie("fblo_1886940058166316");
 			           		 	 		setTimeout(function(){
 			           		 	 			window.location=rutaOculta+"salir";
 			           		 	 		},500)
@@ -127,7 +127,7 @@ $(".salir").click(function(e){
 	 FB.getLoginStatus(function(response){
 	 	 if(response.status === 'connected'){     
 	 	 	FB.logout(function(response){
-	 	 		delete_Cookie("fblo_302834857766034");
+	 	 		delete_Cookie("fblo_1886940058166316");
 	 	 		console.log("salir");
 	 	 		setTimeout(function(){
 	 	 			window.location=rutaOculta+"salir";
