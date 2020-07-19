@@ -3,7 +3,7 @@
 class Ruta{
 
 	static public function ctrRuta(){
-		return "http://localhost/pwa/";
+		return "https://localhost/pwa/";
 	}
 	
 }

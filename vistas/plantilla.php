@@ -22,6 +22,7 @@
 
 	<?php
 
+		error_reporting(0);
 		session_start();
 		$url = Ruta::ctrRuta();
 		$icono = ControladorPlantilla::ctrEstiloPlantilla();
